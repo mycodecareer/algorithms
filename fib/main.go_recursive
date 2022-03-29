@@ -1,0 +1,22 @@
+package main
+
+import "fmt"
+
+func main() {
+	fmt.Println("Fib")
+	fmt.Println(fib(16))
+}
+
+// fib returns the nth number in the Fibinocci sequence
+func fib(n int) int {
+	if n < 0 {
+		panic("negative input")
+	}
+	if n == 0 {
+		return n
+	}
+	if n == 1 {
+		return n
+	}
+	return fib(n-1) + fib(n-2)
+}

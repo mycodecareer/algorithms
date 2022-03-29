@@ -1,0 +1,30 @@
+package main
+
+import "fmt"
+
+var results = make(map[int]int)
+
+func main() {
+	fmt.Println("Fib")
+	fmt.Println(fib(16))
+	fmt.Println(results)
+}
+
+// fib returns the nth number in the Fibinocci sequence
+func fib(n int) int {
+	r, ok := results[n]
+	if ok {
+		return r
+	}
+	if n < 0 {
+		panic("negative input")
+	}
+
+	if n == 0 || n == 1 {
+		r = n
+	} else {
+		r = fib(n-1) + fib(n-2)
+	}
+	results[n] = r
+	return r
+}
